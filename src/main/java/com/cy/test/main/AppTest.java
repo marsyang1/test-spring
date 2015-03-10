@@ -2,6 +2,7 @@ package com.cy.test.main;
 
 import com.cy.test.bo.User;
 import com.cy.test.config.AppConfig;
+import com.cy.test.service.Count;
 import com.cy.test.service.UserManager;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationContext;
@@ -22,5 +23,17 @@ public class AppTest {
 
         log.info("user =" + user);
 
+        log.info("--------------test count ---------------");
+
+        Count count = (Count) context.getBean("count");
+        Count count2 = (Count) context.getBean("count");
+
+        count.hit();
+        count2.hit();
+
+        log.info("count = " + count.getCount());
+        if(count.getCount() == 2){
+            log.info("spring default is singleton");
+        }
     }
 }
