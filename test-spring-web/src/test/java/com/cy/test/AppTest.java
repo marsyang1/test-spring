@@ -1,10 +1,10 @@
-package com.cy.test.main;
+package com.cy.test;
 
 import com.cy.test.bo.User;
-import com.cy.test.config.AppConfig;
 import com.cy.test.service.Count;
 import com.cy.test.service.UserManager;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -14,9 +14,10 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 @Slf4j
 public class AppTest {
 
-    public static void main(String args[]) {
+    @Test
+    public void test1() {
         ApplicationContext context = new AnnotationConfigApplicationContext(
-                AppConfig.class);
+                WebApplication.class);
 
         UserManager manager = (UserManager) context.getBean("userManager");
         User user = manager.find("test");
@@ -32,7 +33,7 @@ public class AppTest {
         count2.hit();
 
         log.info("count = " + count.getCount());
-        if(count.getCount() == 2){
+        if (count.getCount() == 2) {
             log.info("spring default is singleton");
         }
     }
