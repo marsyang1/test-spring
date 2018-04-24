@@ -3,10 +3,6 @@ server:
 spring:
     thymeleaf:
       cache: false
-security:
-  user:
-    name: tktest
-    password: aa123456
 
 welcome:
   message: test1
