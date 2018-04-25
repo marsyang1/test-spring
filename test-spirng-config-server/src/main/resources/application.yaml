@@ -1,0 +1,23 @@
+server:
+    port: 20001
+spring:
+    thymeleaf:
+      cache: false
+
+
+welcome:
+  message: test1
+
+---
+spring:
+  profiles: default
+
+welcome:
+  message: staging environment
+
+---
+spring:
+  profiles: prod
+
+welcome:
+  message: production environment
